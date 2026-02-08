@@ -1,0 +1,58 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: ecommerce_postgres
+    restart: no
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-ecommerce_db}
+      POSTGRES_USER: ${POSTGRES_USER:-sa}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sa123}
+      PGDATA: /var/lib/postgresql/data/pgdata
+      TZ: Asia/Ho_Chi_Minh
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - ecommerce_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sa} -d ${POSTGRES_DB:-ecommerce_db}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  liquibase:
+    image: liquibase/liquibase:5.0.1
+    container_name: ecommerce_liquibase
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      # Mount thư mục changelog vào container
+      - ./src/main/resources/db/changelog:/liquibase/changelog
+    working_dir: /liquibase
+    networks:
+      - ecommerce_network
+    # Cấu hình qua biến môi trường để dùng cho mọi lệnh (Update, Diff, Status...)
+    environment:
+      LIQUIBASE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-japanese_immersion_hub}
+      LIQUIBASE_USERNAME: ${POSTGRES_USER:-jhub}
+      LIQUIBASE_PASSWORD: ${POSTGRES_PASSWORD:-jhub123}
+      LIQUIBASE_CHANGELOG_FILE: changelog/db.changelog-master.yml
+      # Tắt cái popup quảng cáo Pro/Hub trong log
+      LIQUIBASE_HUB_MODE: off 
+
+  # --- APP SERVICE (Đã tắt để chạy trên Host/NixOS) ---
+  # app:
+  #   image: maven:3.9.6-eclipse-temurin-17
+  #   container_name: jp_app
+  #   ... (đã ẩn để tránh conflict port và java version) ...
+
+volumes:
+  pg_data:
+    driver: local
+
+networks:
+  ecommerce_network:
+    driver: bridge
