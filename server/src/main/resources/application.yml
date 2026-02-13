@@ -12,7 +12,7 @@ spring:
     change-log: classpath:db/changelog/db.changelog-master.yml
 
 server:
-  port: ${SERVER_PORT}
+  port: ${SERVER_PORT:8080}
   servlet:
     context-path: /api/v1
 jwt:

@@ -82,6 +82,21 @@
 			<artifactId>dotenv-java</artifactId>
 			<version>2.2.0</version>
 		</dependency>
+
+		<!-- Swagger -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+
+		<!-- Liquibase migration -->
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
