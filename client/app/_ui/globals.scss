@@ -1,0 +1,21 @@
+@use "@/ui/variables.module.scss" as v;
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+input,
+button {
+  border: 0;
+  outline: none;
+  filter: none;
+}
+
+body {
+  font-family: v.$primaryFont;
+  line-height: 1.2;
+  unicode-bidi: isolate;
+}

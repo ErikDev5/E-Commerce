@@ -1,0 +1,30 @@
+@mixin flexBox($vertical: null, $horizontal: $vertical) {
+  display: flex;
+  justify-content: $horizontal;
+  align-items: $vertical;
+}
+
+@mixin font($size: null, $weight: null, $line-height: null, $color: null) {
+  font: {
+    size: $size;
+    weight: $weight;
+  }
+  color: $color;
+  line-height: $line-height;
+}
+
+@mixin backgroundImage($x, $y, $size) {
+  @content;
+  background-size: $size;
+  background-position: $x $y;
+  background-repeat: no-repeat;
+}
+
+@mixin sellerHeroIcon($x, $y, $size) {
+  @include backgroundImage($x, $y, $size) {
+    height: 28px;
+    width: 36px;
+    flex-shrink: 0;
+    background-image: url("/icons/icons.png");
+  }
+}
