@@ -1,8 +1,29 @@
 @use "@/ui/variables.module.scss" as v;
 @use "@/ui/mixins.module.scss" as mixins;
 
-.signup-form {
-  width: 400px;
+.seller-register {
+  background-color: rgb(253, 250, 247);
+  @include mixins.flexBox(center);
+
+  &__container {
+    @include mixins.flexBox(center, space-between);
+    @include mixins.backgroundImage(center, center, contain) {
+      width: 1040px;
+      min-height: 600px;
+      background-image: url("/images/signup-background.png");
+    }
+  }
+}
+
+.seller-login {
+  @include mixins.flexBox(center, space-between);
+  width: 1040px;
+  min-height: 600px;
+  margin: 0 auto;
+}
+
+.form {
+  min-width: 400px;
   overflow: hidden;
   border-radius: 4px;
   box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.14);
@@ -78,5 +99,15 @@
     @include mixins.font($size: 0.75rem, $color: #ff424f);
     min-height: 1rem;
     padding: 0.25rem 0 0;
+  }
+
+  &__forgotPW {
+    @include mixins.flexBox(center, end);
+
+    > a {
+      @include mixins.font($size: 0.75rem, $color: #05a);
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
   }
 }

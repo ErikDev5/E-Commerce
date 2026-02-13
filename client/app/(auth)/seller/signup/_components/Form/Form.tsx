@@ -1,15 +1,15 @@
 import Link from "next/link";
-import styles from "@/signup/components/SignupForm/SignupForm.module.scss";
+import styles from "@/app/(auth)/seller/main.module.scss";
 
 export default function SignupForm() {
   return (
-    <div className={styles["signup-form"]}>
-      <div className={styles["signup-form__title"]}>
+    <div className={styles["form"]}>
+      <div className={styles["form__title"]}>
         <div>
           <div>Đăng ký</div>
         </div>
       </div>
-      <div className={styles["signup-form__content"]}>
+      <div className={styles["form__content"]}>
         <form>
           <div className={styles["form-field"]}>
             <div className={styles["form-field__content"]}>
@@ -20,12 +20,10 @@ export default function SignupForm() {
             </div>
             <p className={styles["form-field__error"]}></p>
           </div>
-          <button className={styles["signup-form__content__button"]}>
-            Tiếp theo
-          </button>
+          <button className={styles["form__content__button"]}>Tiếp theo</button>
         </form>
       </div>
-      <div className={styles["signup-form__footer"]}>
+      <div className={styles["form__footer"]}>
         <div>
           Bạn đã có tài khoản?
           <Link href='/seller/login'>Đăng nhập</Link>

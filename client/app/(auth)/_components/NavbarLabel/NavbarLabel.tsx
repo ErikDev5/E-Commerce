@@ -8,7 +8,7 @@ export default function NavbarLabel() {
   function getLabel(pathname: string): string | null {
     switch (pathname) {
       case "/seller/login":
-        return "Đăng nhập";
+        return "Kênh Người Bán";
       case "/seller/signup":
         return "Đăng ký";
       default:

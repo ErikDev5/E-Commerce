@@ -1,3 +1,14 @@
+import Hero from "@/login/components/Hero/Hero";
+import Form from "@/login/components/Form/Form";
+import styles from "@/app/(auth)/seller/main.module.scss";
+
 export default function SignupPage() {
-  return <h1>log in</h1>;
+  return (
+    <section>
+      <div className={styles["seller-login"]}>
+        <Hero />
+        <Form />
+      </div>
+    </section>
+  );
 }

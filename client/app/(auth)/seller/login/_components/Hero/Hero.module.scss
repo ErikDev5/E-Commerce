@@ -1,0 +1,28 @@
+@use "@/ui/variables.module.scss" as v;
+@use "@/ui/mixins.module.scss" as mixins;
+
+.hero-section {
+  @include mixins.flexBox(center);
+  flex-direction: column;
+
+  &-content {
+    max-width: 400px;
+  }
+
+  &-heading {
+    @include mixins.font($size: 2rem, $color: v.$primaryColor);
+    line-height: 3.5625rem;
+  }
+
+  &-description {
+    @include mixins.font($size: 1.125rem, $color: #666666);
+    line-height: 1.5rem;
+    margin-bottom: 32px;
+  }
+
+  &-thumb {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+  }
+}

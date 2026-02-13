@@ -22,7 +22,8 @@
       "@/*": ["./*"],
       "@/ui/*": ["./app/_ui/*"],
       "@/auth/components/*": ["./app/(auth)/_components/*"],
-      "@/signup/components/*": ["./app/(auth)/seller/signup/_components/*"]
+      "@/signup/components/*": ["./app/(auth)/seller/signup/_components/*"],
+      "@/login/components/*": ["./app/(auth)/seller/login/_components/*"]
     }
   },
   "include": [
