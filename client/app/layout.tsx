@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
-import "./globals.scss";
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"]
-});
+import "@/ui/globals.scss";
 
 export const metadata: Metadata = {
   title: "Buy Quality Products Online | EShoping Store",
@@ -27,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${roboto.variable} ${roboto.variable}`}>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

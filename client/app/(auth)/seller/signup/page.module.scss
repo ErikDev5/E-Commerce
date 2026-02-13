@@ -1,0 +1,15 @@
+@use "@/ui/mixins.module.scss" as mixins;
+
+.seller-register {
+  background-color: rgb(253, 250, 247);
+  @include mixins.flexBox(center);
+
+  &__container {
+    @include mixins.flexBox(center, space-between);
+    @include mixins.backgroundImage(center, center, contain) {
+      width: 1040px;
+      min-height: 600px;
+      background-image: url("/images/signup-background.png");
+    }
+  }
+}

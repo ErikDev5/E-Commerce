@@ -1,0 +1,9 @@
+@use "@/ui/variables.module.scss" as v;
+@use "@/ui/mixins.module.scss" as mixins;
+
+.nav-link {
+  @include mixins.font($size: 0.875rem, $color: v.$primaryColor);
+  cursor: pointer;
+  margin-right: 15px;
+  text-decoration: none;
+}

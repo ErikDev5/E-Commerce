@@ -1,0 +1,23 @@
+@use "@/ui/variables.module.scss" as v;
+@use "@/ui/mixins.module.scss" as mixins;
+
+.navbar {
+  --navbar-width: #{v.$navbarContentWidth};
+  @include mixins.flexBox(center);
+  position: relative;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.06);
+  height: 84px;
+
+  &-content {
+    @include mixins.flexBox(center, space-between);
+    width: var(--navbar-width);
+  }
+
+  &-brand {
+    @include mixins.flexBox(center);
+
+    & div {
+      @include mixins.font($size: 1.5rem, $color: #222222);
+    }
+  }
+}

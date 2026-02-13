@@ -1,0 +1,82 @@
+@use "@/ui/variables.module.scss" as v;
+@use "@/ui/mixins.module.scss" as mixins;
+
+.signup-form {
+  width: 400px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.14);
+  background: #ffffff;
+
+  &__title {
+    min-height: 80px;
+    @include mixins.flexBox(center, space-between);
+
+    > div {
+      padding: 1.375rem 30px;
+      > div {
+        @include mixins.font($size: 1.25rem, $color: #222222);
+        max-width: 8.5rem;
+      }
+    }
+  }
+
+  &__content {
+    padding: 0 30px;
+
+    &__button {
+      @include mixins.flexBox(center);
+      margin-bottom: 30px;
+      background-color: v.$primaryColor;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.09);
+      text-transform: uppercase;
+      height: 2.5rem;
+      width: 100%;
+      color: #ffffff;
+      border-radius: 0.125rem;
+    }
+  }
+
+  &__footer {
+    margin-bottom: 30px;
+
+    > div {
+      @include mixins.font($size: 0.875rem, $color: rgba(0, 0, 0, 0.26));
+      @include mixins.flexBox(center);
+
+      > a {
+        margin-left: 2px;
+        @include mixins.font(
+          $size: 0.875rem,
+          $weight: 500,
+          $color: v.$primaryColor
+        );
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.form-field {
+  margin-bottom: 10px;
+
+  &__content {
+    @include mixins.flexBox(center, null);
+    border: 1px solid rgba(0, 0, 0, 0.14);
+    border-radius: 2px;
+    box-shadow: inset 0 2px rgba(0, 0, 0, 0.02);
+    height: 2.5rem;
+  }
+
+  &__control {
+    flex: 1;
+    height: 16px;
+    padding: 0.75rem;
+  }
+
+  &__error {
+    @include mixins.font($size: 0.75rem, $color: #ff424f);
+    min-height: 1rem;
+    padding: 0.25rem 0 0;
+  }
+}

@@ -1,0 +1,14 @@
+@use "@/ui/variables.module.scss" as v;
+@use "@/ui/mixins.module.scss" as mixins;
+
+.logo {
+  @include mixins.flexBox(center, space-between);
+  svg {
+    display: inline-block;
+    height: v.$logoHeight;
+    width: 11.875rem;
+    margin-right: -18px;
+    margin-top: -10px;
+    fill: v.$primaryColor;
+  }
+}

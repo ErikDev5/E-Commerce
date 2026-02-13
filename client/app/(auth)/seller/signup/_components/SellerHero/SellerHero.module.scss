@@ -1,0 +1,38 @@
+@use "@/ui/variables.module.scss" as v;
+@use "@/ui/mixins.module.scss" as mixins;
+
+.seller-hero {
+  @include mixins.flexBox(center);
+  flex-direction: column;
+  color: v.$primaryColor;
+  word-break: keep-all;
+
+  &__content {
+    margin-left: 40px;
+    max-width: 405px;
+  }
+
+  &__brand {
+    @include mixins.font($size: 1.5rem, $line-height: 2.25rem);
+  }
+
+  &__title {
+    @include mixins.font($size: 2.25rem, $weight: 500, $line-height: 2.625rem);
+    margin-bottom: 10px;
+    margin-top: 4px;
+  }
+
+  &__feature {
+    margin-top: 30px;
+    @include mixins.flexBox(center, start);
+  }
+
+  &__icon {
+    @include mixins.sellerHeroIcon(var(--x), var(--y), var(--size));
+  }
+
+  &__text {
+    @include mixins.font($size: 1rem, $line-height: 1.5rem);
+    margin-left: 19px;
+  }
+}
