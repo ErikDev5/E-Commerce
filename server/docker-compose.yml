@@ -29,19 +29,18 @@ services:
       postgres:
         condition: service_healthy
     volumes:
-      # Mount thư mục changelog vào container
       - ./src/main/resources/db/changelog:/liquibase/changelog
+      - ~/.m2/repository/org/postgresql/postgresql/42.7.9/postgresql-42.7.9.jar:/liquibase/lib/postgresql.jar
     working_dir: /liquibase
     networks:
       - ecommerce_network
-    # Cấu hình qua biến môi trường để dùng cho mọi lệnh (Update, Diff, Status...)
-    environment:
-      LIQUIBASE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-japanese_immersion_hub}
-      LIQUIBASE_USERNAME: ${POSTGRES_USER:-jhub}
-      LIQUIBASE_PASSWORD: ${POSTGRES_PASSWORD:-jhub123}
-      LIQUIBASE_CHANGELOG_FILE: changelog/db.changelog-master.yml
-      # Tắt cái popup quảng cáo Pro/Hub trong log
-      LIQUIBASE_HUB_MODE: off 
+    entrypoint:
+      - liquibase
+      - --search-path=/liquibase/changelog
+      - --changelog-file=db.changelog-master.yml
+      - --url=jdbc:postgresql://postgres:5432/${POSTGRES_DB:-ecommerce_db}
+      - --username=${POSTGRES_USER:-sa}
+      - --password=${POSTGRES_PASSWORD:-sa123} 
 
   # --- APP SERVICE (Đã tắt để chạy trên Host/NixOS) ---
   # app:
