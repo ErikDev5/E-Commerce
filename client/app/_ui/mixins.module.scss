@@ -1,3 +1,5 @@
+@use "@/ui/variables.module.scss" as v;
+
 @mixin flexBox($vertical: null, $horizontal: $vertical) {
   display: flex;
   justify-content: $horizontal;
@@ -27,4 +29,14 @@
     flex-shrink: 0;
     background-image: url("/icons/icons.png");
   }
+}
+
+@mixin defaultButton {
+  margin-bottom: 30px;
+  background-color: v.$primaryColor;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.09);
+  height: 2.5rem;
+  width: 100%;
+  color: #ffffff;
+  border-radius: 0.125rem;
 }
