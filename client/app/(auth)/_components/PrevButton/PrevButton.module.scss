@@ -1,0 +1,11 @@
+@use "@/ui/variables.module.scss" as v;
+
+.prevButton {
+  fill: v.$primaryColor;
+  height: 1.5rem;
+  aspect-ratio: 1 / 1;
+  padding-top: 0.25rem;
+  user-select: none;
+  padding-top: 0.25rem;
+  background: #ffffff;
+}

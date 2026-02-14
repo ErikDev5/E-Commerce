@@ -8,14 +8,15 @@ type Props = {
 };
 
 export default function SubmitButton({ label }: Props) {
-  const { nextStep } = useSellerContext();
+  const { step, nextStep } = useSellerContext();
 
   return (
     <button
       onClick={() => {
         nextStep();
       }}
-      className={styles["submit-button"]}>
+      type='button'
+      className={`${styles["submit-button"]} ${step === 3 && styles["not-allowed"]}`}>
       {label}
     </button>
   );
