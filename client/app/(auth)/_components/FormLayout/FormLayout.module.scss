@@ -5,7 +5,7 @@
   @include mixins.flexBox(center);
   min-height: calc(100vh - 185px);
   width: 1040px;
-  margin: 0 auto;
+  margin: 0 auto 45px;
 
   &-content {
     @include mixins.flexBox(center);
