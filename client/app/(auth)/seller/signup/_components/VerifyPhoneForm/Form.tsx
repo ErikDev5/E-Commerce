@@ -1,5 +1,5 @@
 import SubmitButton from "@/auth/components/SubmitButton/SubmitButton";
-import styles from "@/signup/components/VerifyPhoneSection/VerifyPhoneSection.module.scss";
+import styles from "@/signup/components/VerifyPhoneForm/Form.module.scss";
 
 export default function Form() {
   return (

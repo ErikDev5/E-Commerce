@@ -2,22 +2,41 @@
 
 import { Fragment } from "react";
 import Hero from "@/signup/components/Hero/Hero";
-import Form from "@/signup/components/Form/Form";
+import SignupForm from "@/signup/components/Form/Form";
+import VerifyPhoneForm from "@/app/(auth)/seller/signup/_components/VerifyPhoneForm/Form";
+import FormLayout from "@/auth/components/FormLayout/FormLayout";
 import { useSellerContext } from "@/contexts/SellerSignupContext";
 import styles from "@/app/(auth)/seller/main.module.scss";
-import VerifyPhoneSection from "./_components/VerifyPhoneSection/VerifyPhoneSection";
 
 export default function LoginPage() {
   const { step } = useSellerContext();
 
   // Verify phone number
   if (step === 1) {
-    return <VerifyPhoneSection />;
+    return (
+      <FormLayout title='Nhập mã xác nhận'>
+        <VerifyPhoneForm />
+      </FormLayout>
+    );
   }
 
   // Create new password
+  if (step === 2) {
+    return (
+      <FormLayout title='Thiết Lập Mật Khẩu'>
+        <VerifyPhoneForm />
+      </FormLayout>
+    );
+  }
 
   // Complete
+  if (step === 3) {
+    return (
+      <FormLayout title='Đăng ký thành công!'>
+        <VerifyPhoneForm />
+      </FormLayout>
+    );
+  }
 
   //default
   return (
@@ -25,7 +44,7 @@ export default function LoginPage() {
       <section className={styles["seller-register"]}>
         <div className={styles["seller-register__container"]}>
           <Hero />
-          <Form />
+          <SignupForm />
         </div>
       </section>
     </Fragment>
