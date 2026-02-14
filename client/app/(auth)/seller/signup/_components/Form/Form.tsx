@@ -1,4 +1,6 @@
 import Link from "next/link";
+import SuccessIcon from "@/auth/components/SuccessIcon/SuccessIcon";
+import SubmitButton from "@/auth/components/SubmitButton/SubmitButton";
 import styles from "@/app/(auth)/seller/main.module.scss";
 
 export default function SignupForm() {
@@ -17,10 +19,11 @@ export default function SignupForm() {
                 className={styles["form-field__control"]}
                 placeholder='Số điện thoại'
               />
+              <SuccessIcon />
             </div>
             <p className={styles["form-field__error"]}></p>
           </div>
-          <button className={styles["form__content__button"]}>Tiếp theo</button>
+          <SubmitButton label='Tiếp theo' />
         </form>
       </div>
       <div className={styles["form__footer"]}>

@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import { useSellerContext } from "@/contexts/SellerSignupContext";
 import styles from "@/auth/components/Footer/Footer.module.scss";
 
 export default function Footer() {
+  const { step } = useSellerContext();
+  if (step !== 0) return null;
   return (
     <div className={styles["footer"]}>
       <div className={styles["footer-title"]}>

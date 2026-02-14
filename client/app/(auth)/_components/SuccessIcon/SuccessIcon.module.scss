@@ -1,0 +1,14 @@
+@use "@/ui/mixins.module.scss" as mixins;
+
+.icon-wrap {
+  @include mixins.flexBox(center);
+  background: transparent;
+  border: 0;
+  outline: none;
+  padding: 0 0.9375rem 0 0.75rem;
+
+  &-item {
+    height: 1rem;
+    width: 1rem;
+  }
+}

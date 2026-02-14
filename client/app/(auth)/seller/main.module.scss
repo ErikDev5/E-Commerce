@@ -44,18 +44,6 @@
 
   &__content {
     padding: 0 30px;
-
-    &__button {
-      @include mixins.flexBox(center);
-      margin-bottom: 30px;
-      background-color: v.$primaryColor;
-      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.09);
-      text-transform: uppercase;
-      height: 2.5rem;
-      width: 100%;
-      color: #ffffff;
-      border-radius: 0.125rem;
-    }
   }
 
   &__footer {

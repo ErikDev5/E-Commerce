@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SellerSignupProvider } from "@/contexts/SellerSignupContext";
 import "@/ui/globals.scss";
 
 export const metadata: Metadata = {
@@ -21,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body>{children}</body>
+      <body>
+        <SellerSignupProvider>{children}</SellerSignupProvider>
+      </body>
     </html>
   );
 }

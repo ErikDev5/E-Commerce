@@ -1,0 +1,69 @@
+@use "@/ui/mixins.module.scss" as mixins;
+
+$arrowColor: rgba(0, 0, 0, 0.26);
+$doneColor: #6c0;
+
+.verify-phone-steps {
+  @include mixins.flexBox(center, null);
+  margin-bottom: 3.75rem;
+  margin-top: 25px;
+}
+
+.verify-phone-step {
+  @include mixins.flexBox(center);
+  flex-direction: column;
+  min-height: 4.5rem;
+  min-width: 6.25rem;
+  padding: 0.625rem 0.3125rem;
+
+  > div {
+    @include mixins.flexBox(center);
+    border: 0.0625rem solid $arrowColor;
+    color: $arrowColor;
+    border-radius: 100%;
+    height: 2rem;
+    aspect-ratio: 1 / 1;
+
+    > svg {
+      height: 1em;
+      aspect-ratio: 1 / 1;
+      fill: currentColor;
+    }
+  }
+
+  > p {
+    color: $arrowColor;
+    font-size: 0.75rem;
+    margin: 0.3125rem 0 0;
+  }
+
+  &.active > div {
+    background-color: $doneColor;
+    color: #ffffff;
+    border: none;
+  }
+
+  &.active > p {
+    color: $doneColor;
+  }
+
+  &-arrow {
+    position: relative;
+    background: $arrowColor;
+    bottom: 10px;
+    height: 0.0625rem;
+    width: 5.3125rem;
+  }
+
+  &-arrow::after {
+    content: "";
+    border-right: 0.0625rem solid $arrowColor;
+    border-top: 0.0625rem solid $arrowColor;
+    height: 0.3125rem;
+    position: absolute;
+    right: 0;
+    top: -2px;
+    transform: rotate(45deg);
+    aspect-ratio: 1 /1;
+  }
+}
