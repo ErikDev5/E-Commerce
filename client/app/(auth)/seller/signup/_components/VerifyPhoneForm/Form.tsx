@@ -1,4 +1,4 @@
-import SubmitButton from "@/auth/components/SubmitButton/SubmitButton";
+import SubmitButton from "@/signup/components/SubmitButton/SubmitButton";
 import styles from "@/signup/components/VerifyPhoneForm/Form.module.scss";
 
 export default function Form() {

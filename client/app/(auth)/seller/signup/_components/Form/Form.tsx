@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SuccessIcon from "@/auth/components/SuccessIcon/SuccessIcon";
-import SubmitButton from "@/auth/components/SubmitButton/SubmitButton";
+import SubmitButton from "@/signup/components/SubmitButton/SubmitButton";
 import styles from "@/app/(auth)/seller/main.module.scss";
 
 export default function SignupForm() {
