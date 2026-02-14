@@ -24,7 +24,7 @@ public class OTPServiceImpl implements OTPService {
     static final String OTP_PREFIX = "OTP:";
     static final String SEND_RATE_PREFIX = "OTP_SEND_RATE:";   // Giới hạn số lần GỬI
     static final String VERIFY_RATE_PREFIX = "OTP_VERIFY_RATE:"; // Giới hạn số lần XÁC THỰC
-    static final long OTP_TTL_MINUTES = 5;
+    public static final long OTP_TTL_MINUTES = 5;
     static final int MAX_SEND_REQUESTS = 3;    // Tối đa 3 lần gửi / 5 phút
     static final int MAX_VERIFY_ATTEMPTS = 5;  // Tối đa 5 lần nhập sai / 5 phút
 
@@ -71,6 +71,11 @@ public class OTPServiceImpl implements OTPService {
     @Override
     public void deleteOtp(String phoneNumber) {
         redisTemplate.delete(OTP_PREFIX + phoneNumber);
+    }
+
+    @Override
+    public long getOtpTtlSeconds() {
+        return OTP_TTL_MINUTES * 60;
     }
 
     private void checkRateLimit(String key, int maxRequests, ErrorCode errorCode) {

@@ -28,6 +28,8 @@ public class TwilioProviderSmsSender implements SmsSenderService {
     public void sendSms(String phoneNumber, String message) {
         try {
             PhoneNumber to = new PhoneNumber(phoneNumber);
+            logger.info("Sending SMS to: {}, From: {}, Message: {}",
+                    phoneNumber, twilioConfig.getFromPhoneNumber(), message);
             PhoneNumber from = new PhoneNumber(twilioConfig.getFromPhoneNumber());
 
             Message twilioMessage = Message.creator(to, from, message).create();
